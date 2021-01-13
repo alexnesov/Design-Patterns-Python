@@ -1,7 +1,7 @@
 # Design-Patterns-Python
 
 
-## Mediator
+### Mediator
 Facilitates communication between different components</br>
 Component may go in and out of a system at any time</br>
 --> Chat room participants</br>
