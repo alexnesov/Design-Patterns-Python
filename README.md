@@ -1,5 +1,6 @@
 # Design-Patterns-Python
 
+Design patterns are common architectural approaches
 
 ### Mediator
 Facilitates communication between different components</br>
