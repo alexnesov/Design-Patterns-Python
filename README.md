@@ -4,8 +4,8 @@
 ### Mediator
 Facilitates communication between different components</br>
 Component may go in and out of a system at any time</br>
---> Chat room participants</br>
--->Player in an MMORPG</br>
+&#8594 Chat room participants</br>
+&#8594 Player in an MMORPG</br>
 It makes no sense for them to have direct references to one another.</br>
 </br>
 
