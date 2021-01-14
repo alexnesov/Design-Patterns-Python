@@ -2,6 +2,7 @@
 
 Design patterns are common architectural approaches
 
+This Work is inspired by:</br>
 
 ![alt text](./designPatternsIMG.png)
 
