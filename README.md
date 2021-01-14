@@ -2,6 +2,10 @@
 
 Design patterns are common architectural approaches
 
+
+![alt text]("designPatternsIMG.png")
+
+
 ### Mediator
 Facilitates communication between different components</br>
 Component may go in and out of a system at any time</br>
