@@ -3,7 +3,7 @@
 Design patterns are common architectural approaches
 
 
-![alt text]("designPatternsIMG.png")
+![alt text](./designPatternsIMG.png)
 
 
 ### Mediator
