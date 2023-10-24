@@ -20,10 +20,10 @@ class Journal:
         file.close()
 
     def load(self, filename):
-        pass
+        ...
 
     def load_from_web(self, uri):
-        pass
+        ...
 
 
 class PersistenceManager:
