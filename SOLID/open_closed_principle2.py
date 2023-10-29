@@ -1,61 +1,43 @@
-class SavingsAccount:
-    def __init__(self, balance):
-        self.balance = balance
+# Violation of the Open-Closed Principle (Before)
 
-    def calculate_interest(self):
-        return self.balance * 0.02
 
-class CurrentAccount:
-    def __init__(self, balance):
-        self.balance = balance
+class PaymentProcessor:
+    def process_payment(self, amount, payment_method):
+        if payment_method == 'credit_card':
+            # Process credit card payment logic here
+            print(f"Processing credit card payment of ${amount}")
+        elif payment_method == 'paypal':
+            # Process PayPal payment logic here
+            print(f"Processing PayPal payment of ${amount}")
 
-    def calculate_interest(self):
-        return self.balance * 0.01
 
-# Usage
-savings_account = SavingsAccount(5000)
-current_account = CurrentAccount(3000)
-
-print("Interest earned in savings account:", savings_account.calculate_interest())
-print("Interest earned in current account:", current_account.calculate_interest())
+# Adhering to the Open-Closed Principle (After)
 
 """
-In this code, we have two account classes, SavingsAccount and CurrentAccount, 
-each with its own calculate_interest method. If you wanted to add more account 
-types like "FixedDepositAccount" or "InvestmentAccount," you would need to 
-modify these classes and their methods, violating the Open-Closed Principle.
+To adhere to the Open-Closed Principle, you can use polymorphism and create a base class with a common interface for 
+payment methods and then create separate classes for each payment method, implementing that interface. Here's an updated example:
+"""
+class PaymentProcessor:
+    def process_payment(self, amount, payment_method):
+        payment_method.process(amount)
 
-Now, let's refactor this code to adhere to the Open-Closed Principle:
+class CreditCardPayment:
+    def process(self, amount):
+        # Process credit card payment logic here
+        print(f"Processing credit card payment of ${amount}")
+
+class PayPalPayment:
+    def process(self, amount):
+        # Process PayPal payment logic here
+        print(f"Processing PayPal payment of ${amount}")
+
+"""
+Now, you can easily add support for new payment methods without modifying the PaymentProcessor class. 
+For example, to add support for Bitcoin payments:
 """
 
-from abc import ABC, abstractmethod
 
-class Account(ABC):
-    def __init__(self, balance):
-        self.balance = balance
-
-    @abstractmethod
-    def calculate_interest(self):
-        pass
-
-class SavingsAccount(Account):
-    def calculate_interest(self):
-        return self.balance * 0.02
-
-class CurrentAccount(Account):
-    def calculate_interest(self):
-        return self.balance * 0.01
-
-class FixedDepositAccount(Account):
-    def calculate_interest(self):
-        return self.balance * 0.03
-
-# Usage
-savings_account = SavingsAccount(5000)
-current_account = CurrentAccount(3000)
-fixed_deposit_account = FixedDepositAccount(10000)
-
-accounts = [savings_account, current_account, fixed_deposit_account]
-
-for account in accounts:
-    print(f"Interest earned in {account.__class__.__name__}: {account.calculate_interest()}")
+class BitcoinPayment:
+    def process(self, amount):
+        # Process Bitcoin payment logic here
+        print(f"Processing Bitcoin payment of ${amount}")
